@@ -3,6 +3,7 @@ import React, {
 } from "react";
 import DoctorCard from "./components/DoctorCard";
 import Wrapper from "./components/Wrapper";
+import Navpills from './components/Navpills'
 import Title from "./components/Title";
 import doctors from "./doctors.json";
 import "./App.css";
@@ -10,7 +11,8 @@ import "./App.css";
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    message: "Click an image to begin!",
+    message: " " 
+    + "Click an image to begin!",
     topScore: 0,
     currentScore: 0,
     doctors: doctors,
@@ -57,11 +59,15 @@ class App extends Component {
     // Map over this.state.friends and render a FriendCard component for each friend object
     render() {
       return ( <Wrapper>
+          <Navpills
+                    message={this.state.message}
+                    curScore={this.state.curScore}
+                    topScore={this.state.topScore}
+                />
         <Title> Doctor Who </Title> {
           this.state.doctors.map(doctor => ( <
-            DoctorCard rotateDoctors = {
-              this.rotateDoctors
-            }
+            DoctorCard
+            rotateDoctors = {this.rotateDoctors}
             id = {doctor.id}
             key = {doctor.id}
             name = {doctor.name}
