@@ -4,13 +4,10 @@ import "./DoctorCard.css";
 
 const DoctorCard = props => (
   <div className="card">
-    <div className="img-container">
+    <div className="img-container" dataid={props.id} onClick={() => props.rotateDoctors(props.id)}>
       <img alt={props.name} src={props.image} />
     </div>
    
-    <span onClick={() => props.rotateDoctors(props.id)} className="rotate">
-      
-    </span>
   </div>
 );
 
